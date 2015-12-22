@@ -1,0 +1,31 @@
+---
+title: Projects
+---
+
+<div class="card">
+  <div class="image">
+    <%= image_tag img_resource %>
+  </div>
+  <div class="content">
+    <div class="header"><%= name %></div>
+    <div class="description"><%= desc %></div>
+  </div>
+  <div class="extra content">
+    <% unless source_link.empty? %>
+      <span class="right floated">
+        <% link_to source_link, target: '_blank' do %>
+          <i class="fa fa-github"></i>
+          Source
+      <% end %>
+      </span>
+    <% end %>
+    <% unless blog_link.empty? %>
+      <% link_to blog_link, target: '_blank', class: 'no-underline-a' do %>
+        <span>
+          <i class="fa fa-file"></i>
+          Blog
+        </span>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,94 @@
+@charset "utf-8";
+@import "normalize";
+
+// layout
+.container {
+  width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-bottom: 50px;
+}
+
+// menu
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+
+  li {
+    display: inline;
+  }
+
+  a {
+    display: inline-block;
+    padding: 10px;
+  }
+}
+
+// blog
+
+div.blog-top-navigation {
+  display: block;
+  text-align: right;
+  font: 12px arial, sans-serif;
+}
+
+div.blogs-container {
+
+  div.blog-entry {
+    display: block;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: thin solid #dedae0;
+
+    a.title {
+      text-decoration: blink;
+      color: #413D3D;
+      font: 25px arial, sans-serif;
+      // unvisited link.
+      &:link { }
+      // visited links.
+      &:visited { }
+      &:hover {
+        color: #FA023C;
+      }
+      // click link
+      :focus { }
+      // The user has clicked a link.
+      :active { }
+    }
+
+    p {
+      padding-left: 5px;
+      font: 14px arial, sans-serif;
+      color: #A9B0B3;
+    }
+
+    div.metainfo {
+      display: block;
+      padding-left: 5px;
+      font: 13px arial, sans-serif;
+      span.date {
+        color: red;
+      }
+      span.tags {
+        color: blue;
+      }
+    }
+
+  }
+
+  div.blog-entry:last-of-type  {
+    border: none;
+  }
+}
+
+// projects
+div.projects-container {
+  padding-top: 30px;
+}
+
+a.no-underline-a {
+  text-decoration: blink;
+}

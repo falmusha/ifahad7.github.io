@@ -1,0 +1,38 @@
+---
+title: Fahad's Blog
+pageable: true
+---
+
+<div class="blog-top-navigation">
+  <% link_to prev_page do %>
+    <i class="fa fa-long-arrow-left"></i>
+  <% end %>
+  <%= page_number %> / <%= num_pages %>
+  <% link_to next_page do %>
+    <i class="fa fa-long-arrow-right"></i>
+  <% end %>
+</div>
+
+<div class="blogs-container">
+  <% page_articles.each_with_index do |article, i| %>
+    <div class="blog-entry">
+      <%= link_to article.title, article, class: "title" %>
+      <%= article.summary(350) %>
+
+      <div class="metainfo">
+        <span class="date"><%= article.date.strftime('%B %e, %Y') %></span>
+        <span class="tags"> - tag1, tag2, tag3</span>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="blog-top-navigation">
+  <% link_to prev_page do %>
+    <i class="fa fa-long-arrow-left"></i>
+  <% end %>
+  <%= page_number %> / <%= num_pages %>
+  <% link_to next_page do %>
+    <i class="fa fa-long-arrow-right"></i>
+  <% end %>
+</div>
