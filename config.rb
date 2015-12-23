@@ -5,11 +5,13 @@
 
 # Blog
 activate :blog do |blog|
-  blog.prefix     = "blog"
-  blog.permalink  = "{year}/{title}.html"
-  blog.sources    = "{year}-{month}-{day}-{title}.html"
-  blog.paginate   = true
-  blog.per_page   = 10
+  blog.prefix       = "blog"
+  blog.permalink    = "{year}/{title}.html"
+  blog.sources      = "{year}-{month}-{day}-{title}.html"
+  blog.paginate     = true
+  blog.per_page     = 10
+  blog.tag_template = "blog/tag.html"
+  # blog.taglink      = "tags/#{tag}.html"
 end
 
 # Per-page layout changes:

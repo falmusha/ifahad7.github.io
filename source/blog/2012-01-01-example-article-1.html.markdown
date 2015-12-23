@@ -1,7 +1,7 @@
 ---
 title: Example Article 1
 date: 2012-01-01
-tags: example
+tags: example, second
 pageable: true
 ---
 

@@ -1,11 +1,15 @@
 ---
-title: Fahad's Blog
+title: Fahad Almusharraf
 pageable: true
 ---
+
+<div class="tagged-articles-header">
+  <h3>articles tagged '<%= tagname %>'</h3>
+</div>
 
 <% paging_data = {next_page: next_page, prev_page: prev_page, %>
 <% page_number: page_number, num_pages: num_pages} %>
 
 <%= partial :blog_navigation, locals: paging_data %>
-<%= partial :blog_entries, locals: {custom_blogs: page_articles} %>
+<%= partial :blog_entries, locals: {custom_blogs: articles} %>
 <%= partial :blog_navigation, locals: paging_data %>
