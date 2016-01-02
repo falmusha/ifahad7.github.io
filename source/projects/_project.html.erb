@@ -2,13 +2,13 @@
 title: Projects
 ---
 
-<div class="card">
-  <div class="image">
-    <%= image_tag img_resource %>
-  </div>
+<div class="custom-card card">
   <div class="content">
-    <div class="header"><%= name %></div>
-    <div class="description"><%= desc %></div>
+    <% header_href = website.nil? ? source_link : website %>
+    <a class="header" href="<%= header_href %>" target="_blank"><%= name %></a>
+    <div class="description">
+      <%= desc %>
+    </div>
   </div>
   <div class="extra content">
     <% unless source_link.empty? %>

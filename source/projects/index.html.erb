@@ -1,11 +1,9 @@
 ---
-title: Fahad's Blog
+title: Projects
 ---
 
-<%= stylesheet_link_tag 'semantic-ui/card.min' %>
-
 <div class="projects-container">
-  <div class="ui three stackable cards">
+  <div class="ui two stackable cards">
     <% data.projects.each do |p| %>
       <%= partial :project, locals: p %>
     <% end%>
