@@ -1,0 +1,15 @@
+p.bio {
+  font: 18px arial, sans-serif;
+  line-height: 28px;
+  text-align: justify;
+  color: #666666;
+
+  a {
+    text-decoration: none;
+    color: #008584;
+    &:hover {
+      text-decoration: underline;
+      color: #006666;
+    }
+  }
+}

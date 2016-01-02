@@ -1,0 +1,21 @@
+---
+title: Enforcing SSL CA verification
+date: 2015-12-27
+published: false
+tags: security, SSL, C
+---
+
+## Overview
+The problem with SSL is that most software developers misunderstand it and use
+it improperly, which then leads to vulnerability to
+[MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) attacks. The
+inspiration for this post is a [paper]() titled “The Most Dangerous Code in the
+World: Validating SSL Certificates in Non-Browser Software”
+
+TBC ...
+
+
+
+
+
+

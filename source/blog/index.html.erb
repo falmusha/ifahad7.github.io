@@ -3,9 +3,11 @@ title: Fahad's Blog
 pageable: true
 ---
 
-<% paging_data = {next_page: next_page, prev_page: prev_page, %>
-<% page_number: page_number, num_pages: num_pages} %>
+<% paging_data = { %>
+<%    next_page: next_page, %>
+<%    prev_page: prev_page, %>
+<%    page_number: page_number, %>
+<%    num_pages: num_pages %>
+<% } %>
 
-<%= partial :blog_navigation, locals: paging_data %>
-<%= partial :blog_entries, locals: {custom_blogs: page_articles} %>
-<%= partial :blog_navigation, locals: paging_data %>
+<%= partial :blog_entries, locals: {custom_blogs: page_articles, paging_data: paging_data} %>

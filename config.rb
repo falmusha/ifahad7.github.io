@@ -6,13 +6,14 @@
 # Blog
 activate :blog do |blog|
   blog.prefix       = "blog"
-  blog.permalink    = "{year}/{title}.html"
-  blog.sources      = "{year}-{month}-{day}-{title}.html"
+  blog.permalink    = "{year}/{month}/{title}.html"
+  blog.sources      = "articles/{year}-{month}-{day}-{title}.html"
   blog.paginate     = true
   blog.per_page     = 10
   blog.tag_template = "blog/tag.html"
-  # blog.taglink      = "tags/#{tag}.html"
 end
+
+page "blog/articles/*", layout: :blog_entry
 
 # Per-page layout changes:
 # With no layout
@@ -40,13 +41,30 @@ end
 # Build-specific configuration
 configure :build do
   # Minify CSS on build
-  # activate :minify_css
+  ctivate :minify_css
 
   # Minify Javascript on build
-  # activate :minify_javascript
+  activate :minify_javascript
 end
 
-activate :deploy do |deploy|
-  deploy.deploy_method = :git
-  deploy.branch = 'master'
+#####################################
+# Helper methods
+#####################################
+
+require 'nokogiri'
+
+helpers do
+
+  def blog_summary(html_summary)
+    paragraphs = Nokogiri::HTML(html_summary).css('p')
+
+    if paragraphs.empty?
+      summary = ""
+    else
+      summary = paragraphs.first
+    end
+
+    return summary
+  end
+
 end

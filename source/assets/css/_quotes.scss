@@ -1,0 +1,61 @@
+blockquote {
+  width: 500px;
+  margin: 0.25em 0;
+  padding: 0.30em 40px;
+  line-height: 1.45;
+  position: relative;
+  color: #999999;
+  font-style: italic;
+
+  &:before {
+    display: block;
+    position: absolute;
+    color: #008584;
+  }
+
+  cite {
+    color: #4d4d4d;
+    display: block;
+    margin-top: 5px;
+
+    &:before {
+      content: "\2014 \2009";
+    }
+  }
+
+}
+
+blockquote.ar {
+  font-family: Scheherazade, serif;
+  font-size: 38px;
+  direction: rtl;
+
+  &:before {
+    content: "\201D";
+    font-size: 98px;
+    left: 548px;
+    top: -18px;
+  }
+
+  cite {
+    font-size: 20px;
+  }
+}
+
+
+blockquote.en {
+  font-family: Georgia, serif;
+  font-size: 25px;
+  padding-left: 60px;
+
+  &:before {
+    content: "\201C";
+    font-size: 80px;
+    left: 5px;
+    top: -10px;
+  }
+
+  cite {
+    font-size: 14px;
+  }
+}

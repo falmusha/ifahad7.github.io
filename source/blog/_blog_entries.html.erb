@@ -1,19 +1,28 @@
-<div class="blogs-container">
-  <% custom_blogs.each_with_index do |article, i| %>
-    <div class="blog-entry">
+<div class="article-lists-container">
+  <%= partial :blog_navigation, locals: paging_data %>
+
+  <% custom_blogs.each do |article| %>
+    <div class="entry">
       <%= link_to article.title, article, class: "title" %>
-      <%= article.summary(350) %>
+      <%= blog_summary(article.summary(150, ' ...')) %>
 
       <div class="metainfo">
-        <span class="date"><%= article.date.strftime('%B %e, %Y') %></span>
-        <div class="tags">
-          <% article.tags.each do |tag| %>
+        <span class="date"><%= article.date.strftime('%^B %e, %Y') %></span>
+          <% tags_count = article.tags.count %>
+          <div class="tags">
+          <% article.tags.each_with_index do |tag, index| %>
             <span class="tag">
-              <%= link_to tag, tag_path(tag) %>
+              <% if index < tags_count-1 %>
+                <%= link_to "#{tag},", tag_path(tag) %>
+              <% else %>
+                <%= link_to "#{tag}", tag_path(tag) %>
+              <% end %>
             </span>
           <% end %>
-        </div>
+          </div>
       </div>
     </div>
   <% end %>
+
+  <%= partial :blog_navigation, locals: paging_data %>
 </div>

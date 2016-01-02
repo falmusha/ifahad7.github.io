@@ -1,11 +1,29 @@
 @charset "utf-8";
 @import "normalize";
+@import "quotes";
+@import "blogs";
+@import "projects";
+@import "about";
 
 @font-face {
   font-family: 'Scheherazade';
   src: url('../fonts/Scheherazade-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+}
+
+body {
+  background: #F5F5F5;
+}
+
+a {
+  text-decoration: none;
+  white-space: nowrap;
+  color: #008584;
+  &:hover {
+    text-decoration: underline;
+    color: #006666;
+  }
 }
 
 // layout
@@ -16,11 +34,30 @@
   padding-bottom: 50px;
 }
 
+// layout header
+div.layout-header {
+  padding-top: 25px;
+  text-align: center;
+  color: #008584;
+
+  div.logo {
+    font: 40px Scheherazade, serif;
+  }
+
+  div.social {
+    font-size: 25px;
+
+    a:hover {
+      text-decoration: none;
+    }
+  }
+}
+
 // menu
 .menu {
   list-style: none;
   margin: 0;
-  padding: 20px 0px 0px 0px;
+  padding: 10px 0px 70px 0px;
   text-align: center;
   font: 25px arial, sans-serif;
 
@@ -37,156 +74,10 @@
 
   a:hover {
     text-decoration: underline;
-    color: red;
+    color: #006666;
   }
 
   a, span {
-    color: #A9B0B3;
+    color: #008584;
   }
 }
-
-
-// blog
-div.blog-top-navigation {
-  display: block;
-  text-align: right;
-  font: 12px arial, sans-serif;
-}
-
-div.blogs-container {
-
-  div.blog-entry {
-    display: block;
-    padding-top: 35px;
-    padding-bottom: 35px;
-    border-bottom: thin solid rgba(222, 218, 224, 0.7);
-
-    a.title {
-      text-decoration: blink;
-      color: #413D3D;
-      font: 25px arial, sans-serif;
-      // unvisited link.
-      &:link { }
-      // visited links.
-      &:visited { }
-      &:hover {
-        color: #FA023C;
-      }
-      // click link
-      :focus { }
-      // The user has clicked a link.
-      :active { }
-    }
-
-    p {
-      padding-left: 5px;
-      font: 14px arial, sans-serif;
-      color: #A9B0B3;
-    }
-
-    div.metainfo {
-      display: block;
-      padding-left: 5px;
-      font: 13px arial, sans-serif;
-      span.date {
-        color: red;
-      }
-      span.tag {
-        a {
-          float: right
-        }
-      }
-    }
-
-  }
-
-  div.blog-entry:last-of-type  {
-    border: none;
-  }
-}
-
-div.tagged-articles-header {
-  h3 {
-    padding: 30px;
-    text-align: center;
-    font: 18px arial, sans-serif;
-    color: red;
-  }
-}
-
-// projects
-div.projects-container {
-  padding-top: 30px;
-}
-
-a.no-underline-a {
-  text-decoration: blink;
-}
-
-// quotes
-div.quotes {
-  padding-top: 100px;
-}
-
-blockquote {
-  width: 500px;
-  margin: 0.25em 0;
-  padding: 0.30em 40px;
-  line-height: 1.45;
-  position: relative;
-  color: #383838;
-  font-style: italic;
-
-  &:before {
-    display: block;
-    position: absolute;
-    color: #7a7a7a;
-  }
-
-  cite {
-    color: #999999;
-    display: block;
-    margin-top: 5px;
-
-    &:before {
-      content: "\2014 \2009";
-    }
-  }
-
-}
-
-blockquote.ar {
-  font-family: Scheherazade, serif;
-  font-size: 38px;
-  direction: rtl;
-
-  &:before {
-    content: "\201D";
-    font-size: 98px;
-    left: 550px;
-    top: -18px;
-  }
-
-  cite {
-    font-size: 20px;
-  }
-}
-
-
-blockquote.en {
-  font-family: Georgia, serif;
-  font-size: 25px;
-
-  &:before {
-    content: "\201C";
-    font-size: 80px;
-    left: -20px;
-    top: -10px;
-  }
-
-  cite {
-    font-size: 14px;
-  }
-}
-
-
