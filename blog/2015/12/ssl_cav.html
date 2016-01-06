@@ -1,0 +1,459 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>Enforcing SSL CA verification</title>
+
+    <link href='//fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/assets/css/semantic-ui/card.min.css" rel="stylesheet" />
+    <link href="/assets/css/site.css" rel="stylesheet" />
+    <script src="/assets/js/all.js"></script>
+  </head>
+
+
+  <body>
+    <div class="container">
+      <div class="layout-header">
+        <div class="logo">فهد</div>
+        <div class="social">
+          <a href="https://ca.linkedin.com/in/falmusharraf" target="_blank">
+            <i class="fa fa-linkedin-square"></i>
+          </a>
+          <a href="https://github.com/ifahad7" target="_blank">
+            <i class="fa fa-github-square"></i>
+          </a>
+          <a href="https://twitter.com/iFahad7" target="_blank">
+            <i class="fa fa-twitter-square"></i>
+          </a>
+        </div>
+      </div>
+      <nav class="menu">
+        <a href="/blog" class="pure-menu-link">Blog</a>
+        <span>|</span>
+        <a href="/projects" class="pure-menu-link">Projects</a>
+        <span>|</span>
+        <a href="/resume.pdf" class="pure-menu-link">Resume</a>
+        <span>|</span>
+        <a href="/about.html" class="pure-menu-link">About</a>
+      </nav>
+        <style>
+    .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .cm {
+  color: #999988;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .c1 {
+  color: #999988;
+  font-style: italic;
+}
+.highlight .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .c, .highlight .cd {
+  color: #999988;
+  font-style: italic;
+}
+.highlight .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+.highlight .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+.highlight .ge {
+  color: #000000;
+  font-style: italic;
+}
+.highlight .gr {
+  color: #aa0000;
+}
+.highlight .gh {
+  color: #999999;
+}
+.highlight .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .gt {
+  color: #aa0000;
+}
+.highlight .kc {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kd {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #445588;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kv {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .mf {
+  color: #009999;
+}
+.highlight .mh {
+  color: #009999;
+}
+.highlight .il {
+  color: #009999;
+}
+.highlight .mi {
+  color: #009999;
+}
+.highlight .mo {
+  color: #009999;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #009999;
+}
+.highlight .sb {
+  color: #d14;
+}
+.highlight .sc {
+  color: #d14;
+}
+.highlight .sd {
+  color: #d14;
+}
+.highlight .s2 {
+  color: #d14;
+}
+.highlight .se {
+  color: #d14;
+}
+.highlight .sh {
+  color: #d14;
+}
+.highlight .si {
+  color: #d14;
+}
+.highlight .sx {
+  color: #d14;
+}
+.highlight .sr {
+  color: #009926;
+}
+.highlight .s1 {
+  color: #d14;
+}
+.highlight .ss {
+  color: #990073;
+}
+.highlight .s {
+  color: #d14;
+}
+.highlight .na {
+  color: #008080;
+}
+.highlight .bp {
+  color: #999999;
+}
+.highlight .nb {
+  color: #0086B3;
+}
+.highlight .nc {
+  color: #445588;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #008080;
+}
+.highlight .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+.highlight .ni {
+  color: #800080;
+}
+.highlight .ne {
+  color: #990000;
+  font-weight: bold;
+}
+.highlight .nf {
+  color: #990000;
+  font-weight: bold;
+}
+.highlight .nl {
+  color: #990000;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #555555;
+}
+.highlight .nt {
+  color: #000080;
+}
+.highlight .vc {
+  color: #008080;
+}
+.highlight .vg {
+  color: #008080;
+}
+.highlight .vi {
+  color: #008080;
+}
+.highlight .nv {
+  color: #008080;
+}
+.highlight .ow {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .o {
+  color: #000000;
+  font-weight: bold;
+}
+.highlight .w {
+  color: #bbbbbb;
+}
+.highlight {
+  background-color: #f8f8f8;
+}
+  </style>
+  <article class="article">
+    <h2>Overview</h2>
+
+<p>I started this project with a friend of mine as a school project for a
+security course during my last year of undergrad.
+The project is called Certificate Authority Verification (CAV). It is a tool that
+allows you to intercept
+the certificate verification process of any non-browser application using
+OpenSSL as a shared library. Interception is made possible by building CAV as a
+shared object and using Linux’s <code>LD_PRELOAD</code> environment variable to override the
+certificate verification functionality of OpenSSL and enforce verification
+against a trusted store of your choice.</p>
+
+<p><strong><em>NOTE: I&rsquo;m no C guru or SSL for that matter, I&rsquo;m experimenting with this stuff
+and CAV is not something that should be trusted</em></strong></p>
+
+<h2>Motivation</h2>
+
+<p>SSL is heavily used in providing secure communication over the Internet.
+Certificate verification is one of the main components in SSL.
+Ensuring the correctness of the verification process ensures the security of SSL.
+Therefore, knowing how to properly use SSL and verify certificates is an
+essential part in establishing secure SSL connections. The problem with SSL is
+that most software developers misunderstand it and use
+it improperly (myself included), which then leads to vulnerability to
+<a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">MITM</a> attacks. This
+post is inspired by two academic papers <a href="http://www.cs.utexas.edu/~shmat/shmat_ccs12.pdf">&ldquo;The Most Dangerous Code in the
+World: Validating SSL Certificates in Non-Browser Software&rdquo;</a>
+and <a href="http://cise.ufl.edu/~bates/documents/Bates_Ccs14.pdf">&ldquo;Securing SSL Certificate Verification through Dynamic Linking&rdquo;</a>.</p>
+
+<h2>Intercepting dynamically linked libraries</h2>
+
+<p>For any dynamically linked library, you can override its functionality using
+the Linux <code>LD_PRELOAD</code> environment variables.</p>
+
+<p>The first step to override an existing library functionality is building you own
+library, <em>as a shared object</em>, that contains the same symbols (function name) of
+the existing dynamically linked library. Then you set the <code>LD_PRELOAD</code>
+environment variables to contain your library:</p>
+<pre class="highlight shell"><code><span class="nb">export </span><span class="nv">LD_PRELOAD</span><span class="o">=</span>/absolute/path/to/liboverride.so:<span class="nv">$LD_PRELOAD</span>
+</code></pre>
+
+<p>Setting <code>LD_PRELOAD</code> to contain your library means that the dynamic
+linked/loader will load your <code>liboverride.so</code> before all other libraries.
+Therefore, the symbols that you override will be invoked first. That is all
+you need to know about <code>LD_PRELOAD</code> to understand this blog post. If you&rsquo;re
+interested in it, you can learn more about it <a href="https://rafalcieslak.wordpress.com/2013/04/02/dynamic-linker-tricks-using-ld_preload-to-cheat-inject-features-and-investigate-programs/">here</a>.</p>
+
+<h2>Looking up symbol names</h2>
+
+<p>The <code>LD_PRELOAD</code> environment variable allows you to override a function completely.
+However, I just want to intercept it, verify the presented certificate chain, and then perform
+the equivalent of invoking <code>super()</code> to return execution to the original function.
+The second part of the puzzle is the piece of code that allows me to return
+execution to the original function. For that, we use C&rsquo;s <code>dlsym()</code>.</p>
+
+<p>The function <code>dlsym()</code> allows you to lookup a symbol in a open, <em>or to be opened</em>,
+object file based on the string name of the symbol. You can tell the compiler to
+open the object file <code>libx.so</code> at run-time and invoke function <code>hello_world</code>
+from it. Taken from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/dlsym.html">The Open Group docs</a>,
+here&rsquo;s an example of how to use <code>dlsym()</code>.</p>
+<pre class="highlight c"><code><span class="kt">void</span> <span class="o">*</span><span class="n">handle</span><span class="p">;</span>
+<span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">fptr</span><span class="p">)(</span><span class="kt">int</span><span class="p">),</span> <span class="o">*</span><span class="n">iptr</span><span class="p">,</span> <span class="n">result</span><span class="p">;</span>
+
+<span class="cm">/* open the needed symbol table */</span>
+<span class="n">handle</span> <span class="o">=</span> <span class="n">dlopen</span><span class="p">(</span><span class="s">"/usr/home/me/libfoo.so"</span><span class="p">,</span> <span class="n">RTLD_LOCAL</span> <span class="o">|</span> <span class="n">RTLD_LAZY</span><span class="p">);</span>
+
+<span class="cm">/* find the address of the function my_function */</span>
+<span class="n">fptr</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">int</span><span class="p">))</span><span class="n">dlsym</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="s">"my_function"</span><span class="p">);</span>
+
+<span class="cm">/* find the address of the data object my_object */</span>
+<span class="n">iptr</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="n">dlsym</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="s">"my_OBJ"</span><span class="p">);</span>
+
+<span class="cm">/* invoke my_function, passing the value of my_OBJ as the parameter */</span>
+<span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="n">fptr</span><span class="p">)(</span><span class="o">*</span><span class="n">iptr</span><span class="p">);</span>
+</code></pre>
+
+<h2>The core of CAV</h2>
+
+<p>In my case, the open object file is already a dynamically linked library.
+Therefore, I don&rsquo;t have to invoke <code>dlopen()</code> on a given object, because it is
+already open. Here my snippet of the code that hijacks OpenSSL verification:</p>
+<pre class="highlight c"><code><span class="cm">/*
+*   These typedefs just point to aliases with function types and arguments
+*   identical to the functions being hijacked.
+*/</span>
+<span class="k">typedef</span> <span class="kt">long</span> <span class="p">(</span><span class="o">*</span><span class="n">orig_SSL_get_verify_result_f_type</span><span class="p">)(</span><span class="k">const</span> <span class="n">SSL</span> <span class="o">*</span><span class="n">ssl</span><span class="p">);</span>
+<span class="k">typedef</span> <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">orig_SSL_connect_f_type</span><span class="p">)(</span><span class="n">SSL</span> <span class="o">*</span><span class="n">s</span><span class="p">);</span>
+
+<span class="kt">long</span> <span class="nf">SSL_get_verify_result</span><span class="p">(</span><span class="k">const</span> <span class="n">SSL</span> <span class="o">*</span><span class="n">ssl</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="n">DEBUG_PRINT</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="s">"Hijacked"</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">err</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="mi">0</span> <span class="o">!=</span> <span class="p">(</span><span class="n">err</span> <span class="o">=</span> <span class="n">verify_cert</span><span class="p">(</span><span class="n">ssl</span><span class="p">)))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">err</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">DEBUG_PRINT</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="s">"Return execution to OpenSSL"</span><span class="p">);</span>
+
+        <span class="cm">/*  Equavilent of saying of:
+        *     SSL * orig_SSL_get_verify_result;
+        */</span>
+        <span class="n">orig_SSL_get_verify_result_f_type</span> <span class="n">orig_SSL_get_verify_result</span><span class="p">;</span>
+
+        <span class="cm">/*  Equavilent of saying of:
+        *     long (*orig_SSL_get_verify_result)(const SSL *ssl);
+        *     orig_SSL_get_verify_result = &amp;SSL_get_verify_result;
+        */</span>
+        <span class="n">orig_SSL_get_verify_result</span> <span class="o">=</span>
+            <span class="p">(</span><span class="n">orig_SSL_get_verify_result_f_type</span><span class="p">)</span><span class="n">dlsym</span><span class="p">(</span><span class="n">RTLD_NEXT</span><span class="p">,</span><span class="s">"SSL_get_verify_result"</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="n">orig_SSL_get_verify_result</span><span class="p">(</span><span class="n">ssl</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>The above code does three things:</p>
+
+<ol>
+<li>Redefines the original function <code>SSL_get_verify_result()</code></li>
+<li>Enforce certificate verification by calling <code>verify_cert(ssl)</code></li>
+<li>Resolve the original function pointer <code>orig_SSL_get_verify_result(ssl)</code> and
+call it</li>
+</ol>
+
+<p>You can also see that the code fails <code>SSL_get_verify_result()</code> if it does not pass
+the custom checking <code>verify_cert(ssl)</code>. One other thing I should mention here is
+the <code>RTLD_NEXT</code> handle used in finding the original function symbol. <code>RTLD_NEXT</code>
+tells your program to look for the specified symbol in the next object in the load
+order. Since we used <code>LD_PRELOAD</code> to give the library <code>libcav.so</code> higher load
+order, we use <code>RTLD_NEXT</code> to look for the symbol in the next object file that
+contains the symbol. That is, ignore the symbol defined in the current object
+and look for the symbol in the next object that contains the symbol name.</p>
+
+<h2>CAV Verification</h2>
+
+<p>CAV verifies the peer certificates based on a configurable on-disk trusted
+store. CAV looks for a <code>$HOME/.cavrc</code> file that contains the path to your
+trusted store. Here is what the file should look like:</p>
+<pre class="highlight plaintext"><code>CA_FILE /path/to/trusted/certificate/file
+CA_DIR /path/to/trusted/certificate/directory
+LOG /path/to/log/file
+</code></pre>
+
+<p>The value of <code>CA_DIR</code> could be something like <code>/etc/ssl/certs</code> on Ubuntu or any
+specific path that contains PEM certificate files you trust. If you build CAV and
+set the <code>LD_PRELOAD</code> environment variable to contain
+<code>libcav.so</code>, then CAV will try to look for the <code>$HOME/.cavrc</code> file and load your
+trusted store and verify the peer certificate chain against it.</p>
+
+<p>How does CAV verify the peer&rsquo;s certificate? Here&rsquo;s the body of the
+<code>verify_cert()</code> function:</p>
+<pre class="highlight c"><code><span class="kt">int</span> <span class="nf">verify_cert</span><span class="p">(</span><span class="k">const</span> <span class="n">SSL</span> <span class="o">*</span><span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="n">init_config_file</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">err</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="cm">/* Find the peer certificate chain */</span>
+    <span class="n">STACK_OF</span><span class="p">(</span><span class="n">X509</span><span class="p">)</span> <span class="o">*</span> <span class="n">sk</span> <span class="o">=</span> <span class="n">SSL_get_peer_cert_chain</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nb">NULL</span> <span class="o">==</span> <span class="n">sk</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">DEBUG_PRINT</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"Certificate chain is not available"</span><span class="p">);</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">err</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">DEBUG_PRINT</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"Found peer certificate chain"</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="mi">0</span> <span class="o">!=</span> <span class="p">(</span><span class="n">err</span> <span class="o">=</span> <span class="n">verify_X509_cert_chain</span><span class="p">(</span><span class="n">sk</span><span class="p">)))</span> <span class="p">{</span>
+        <span class="n">DEBUG_PRINT</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"Failed to verify X509 certificate chain"</span><span class="p">);</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">err</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">DEBUG_PRINT</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"Successfully verified X509 certificate chain"</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>The above code shows that you can get the certificate chain, <em>including the user
+certificate</em>, from the SSL connection object. After you get the certificate
+stack <code>sk</code>, <code>verify_X509_cert_chain()</code> iterates over all certificates and loads an
+SSL store in memory to check each certificate against the loaded store. The
+loaded store is the result of loading the <code>CA_DIR</code> path taken from <code>$HOME/.cavrc</code>.</p>
+
+<p>If you&rsquo;re interested in trying out CAV, you can view the source
+<a href="https://github.com/iFahad7/ssl_cav">here</a>. If you have <a href="https://www.vagrantup.com">Vagrant</a>,
+you don&rsquo;t have to setup the project. You can just <code>vagrant up &amp;&amp; vagrant ssh</code>
+and starting hacking it. I&rsquo;ve put instructions on how to setup the project and
+see a demo of CAV in the project <a href="https://github.com/iFahad7/ssl_cav">readme</a>.</p>
+
+  </article>
+
+    </div>
+  </body>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)
+    },i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-71705504-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</html>
