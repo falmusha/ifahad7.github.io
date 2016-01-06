@@ -1,4 +1,7 @@
 <% wrap_layout :layout do %>
+  <style>
+    <%= Rouge::Themes::Github.render(:scope => '.highlight') %>
+  </style>
   <article class="article">
     <%= yield %>
   </article>

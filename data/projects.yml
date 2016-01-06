@@ -9,7 +9,7 @@
 -
   name: "SSL CAV"
   desc: "Enforce SSL cert CA verificatin for non-browser applications"
-  blog_link: ""
+  blog_link: "/blog/2015/12/ssl_cav.html"
   source_link: "https://github.com/iFahad7/ssl_cav"
   website: "https://github.com/iFahad7/ssl_cav"
   img_resource: "matthew.png"
