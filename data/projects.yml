@@ -1,16 +1,20 @@
 ---
 -
   name: "Hackberry"
-  desc: "Attachable hardware module to pens record digital notes"
+  desc: "Attachable hardware module to pens record digital notes."
   blog_link: ""
   source_link: "https://github.com/iFahad7/hackberry"
   website: "https://github.com/iFahad7/hackberry"
-  img_resource: "matthew.png"
 -
   name: "SSL CAV"
-  desc: "Enforce SSL cert CA verificatin for non-browser applications"
+  desc: "Enforce SSL cert CA verificatin for non-browser applications."
   blog_link: "/blog/2015/12/ssl_cav.html"
   source_link: "https://github.com/iFahad7/ssl_cav"
   website: "https://github.com/iFahad7/ssl_cav"
-  img_resource: "matthew.png"
+-
+  name: "Pixelfinder"
+  desc: "Image search based on EXIF data. Targeted for photographers."
+  blog_link: ""
+  source_link: "https://github.com/iFahad7/pixelfinder-client"
+  website: "https://ifahad7.github.io/pixelfinder-client/"
 
