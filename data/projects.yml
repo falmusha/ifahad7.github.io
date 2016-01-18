@@ -17,4 +17,10 @@
   blog_link: ""
   source_link: "https://github.com/iFahad7/pixelfinder-client"
   website: "https://ifahad7.github.io/pixelfinder-client/"
+-
+  name: "Mosa"
+  desc: "Image Processing library to stitch a series of similar images to create a mosaic"
+  blog_link: ""
+  source_link: "https://github.com/iFahad7/mosa"
+  website: "https://github.com/iFahad7/mosa"
 
