@@ -17,9 +17,9 @@ page "blog/articles/*", layout: :blog_entry
 
 # Per-page layout changes:
 # With no layout
-page '/*.xml', layout: false
-page '/*.json', layout: false
-page '/*.txt', layout: false
+page "/*.xml", layout: false
+page "/*.json", layout: false
+page "/*.txt", layout: false
 
 
 activate :syntax
@@ -29,6 +29,8 @@ set :markdown, :fenced_code_blocks => true, :smartypants => true
 #####################################
 # General configuration
 #####################################
+
+Tilt::SYMBOL_ARRAY_SORTABLE = false
 
 # assets
 assets_prefix = 'assets'
