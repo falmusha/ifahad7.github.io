@@ -34,13 +34,13 @@
         </div>
       </div>
       <nav class="menu">
-        <a href="/blog" class="pure-menu-link">Blog</a>
-        <span>|</span>
-        <a href="/projects" class="pure-menu-link">Projects</a>
-        <span>|</span>
-        <a href="/resume.pdf" class="pure-menu-link">Resume</a>
-        <span>|</span>
-        <a href="/about.html" class="pure-menu-link">About</a>
+        <a href="/blog" class="padded item">Blog</a>
+        <span class="item">|</span>
+        <a href="/projects" class="padded item">Projects</a>
+        <span class="item not-on-mobile">|</span>
+        <a href="/resume.pdf" class="padded item">Resume</a>
+        <span class="item">|</span>
+        <a href="/about.html" class="padded item">About</a>
       </nav>
         <style>
     .highlight table td { padding: 5px; }
@@ -294,7 +294,6 @@ the existing dynamically linked library. Then you set the <code>LD_PRELOAD</code
 environment variables to contain your library:</p>
 <pre class="highlight shell"><code><span class="nb">export </span><span class="nv">LD_PRELOAD</span><span class="o">=</span>/absolute/path/to/liboverride.so:<span class="nv">$LD_PRELOAD</span>
 </code></pre>
-
 <p>Setting <code>LD_PRELOAD</code> to contain your library means that the dynamic
 linked/loader will load your <code>liboverride.so</code> before all other libraries.
 Therefore, the symbols that you override will be invoked first. That is all
@@ -329,7 +328,6 @@ here&rsquo;s an example of how to use <code>dlsym()</code>.</p>
 <span class="cm">/* invoke my_function, passing the value of my_OBJ as the parameter */</span>
 <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="n">fptr</span><span class="p">)(</span><span class="o">*</span><span class="n">iptr</span><span class="p">);</span>
 </code></pre>
-
 <h2>The core of CAV</h2>
 
 <p>In my case, the open object file is already a dynamically linked library.
@@ -368,7 +366,6 @@ already open. Here my snippet of the code that hijacks OpenSSL verification:</p>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-
 <p>The above code does three things:</p>
 
 <ol>
@@ -396,7 +393,6 @@ trusted store. Here is what the file should look like:</p>
 CA_DIR /path/to/trusted/certificate/directory
 LOG /path/to/log/file
 </code></pre>
-
 <p>The value of <code>CA_DIR</code> could be something like <code>/etc/ssl/certs</code> on Ubuntu or any
 specific path that contains PEM certificate files you trust. If you build CAV and
 set the <code>LD_PRELOAD</code> environment variable to contain
@@ -430,7 +426,6 @@ trusted store and verify the peer certificate chain against it.</p>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre>
-
 <p>The above code shows that you can get the certificate chain, <em>including the user
 certificate</em>, from the SSL connection object. After you get the certificate
 stack <code>sk</code>, <code>verify_X509_cert_chain()</code> iterates over all certificates and loads an
