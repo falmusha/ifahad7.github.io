@@ -1,6 +1,10 @@
 @charset "utf-8";
+
+$mobile-width: 668px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
 @import "normalize";
-@import "quotes";
 @import "blogs";
 @import "projects";
 @import "about";
@@ -28,7 +32,8 @@ a {
 
 // layout
 .container {
-  width: 800px;
+  width: 80%;
+  max-width: 800px;
   margin-right: auto;
   margin-left: auto;
   padding-right: 50px;
@@ -43,11 +48,11 @@ div.layout-header {
   color: #008584;
 
   div.logo {
-    font: 40px Scheherazade, serif;
+    font: 60px Scheherazade, serif;
   }
 
   div.social {
-    font-size: 25px;
+    font-size: 35px;
 
     a:hover {
       text-decoration: none;
@@ -57,29 +62,58 @@ div.layout-header {
 
 // menu
 .menu {
-  list-style: none;
-  margin: 0;
-  padding: 10px 0px 70px 0px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 23px;
+  padding: 40px 0px;
   text-align: center;
-  font: 25px arial, sans-serif;
+}
 
-  li {
-    display: inline;
-  }
+.menu .item {
+  color: #008584;
+}
 
-  a {
-    display: inline-block;
-    padding: 10px;
-    text-decoration: none;
-    white-space: nowrap;
-  }
+.menu .padded.item {
+  padding: 0px 15px;
+}
 
-  a:hover {
+.menu a.item {
+  &:hover {
     text-decoration: underline;
     color: #006666;
   }
+}
 
-  a, span {
-    color: #008584;
+
+@media only screen and (max-width: $tablet-width) {
+  .container {
+    width: 600px;
+  }
+}
+
+@media only screen and (max-width: $mobile-width) {
+  .container {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  .menu {
+    font-size: 23px;
+    padding: 40px 0px 15px 0px;
+  }
+
+  .menu .item {
+    width: 10%;
+  }
+
+  .menu .padded.item {
+    width: 40%;
+    padding: 7px 0px;
+  }
+
+  .menu .item.not-on-mobile {
+    display: none;
   }
 }

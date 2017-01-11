@@ -13,3 +13,17 @@ p.bio {
     }
   }
 }
+
+@media only screen and (max-width: $tablet-width) {
+  p.bio {
+    padding: 0px 20px;
+    font: 32px;
+  }
+}
+
+@media only screen and (max-width: $mobile-width) {
+  p.bio {
+    font-size: 20px;
+    text-align: center;
+  }
+}
